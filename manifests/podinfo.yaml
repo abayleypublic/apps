@@ -10,7 +10,7 @@ spec:
     targetRevision: 6.5.3
     path: charts/podinfo
   destination:
-    server: kube
+    server: https://kube.austinbayley.co.uk:6443
     namespace: podinfo
   syncPolicy:
     automated:

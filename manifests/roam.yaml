@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/abayleypublic/activity_tracker_api
-    targetRevision: v0.0.18
+    targetRevision: v0.0.17
     path: deploy/overlays/prod
   destination:
     server: https://kube.austinbayley.co.uk:6443

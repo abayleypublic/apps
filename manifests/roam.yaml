@@ -7,11 +7,11 @@ spec:
   project: default
   source:
     repoURL: https://github.com/abayleypublic/activity_tracker_api
-    targetRevision: v0.1.7
+    targetRevision: v0.1.8
     path: deploy/overlays/prod
     kustomize:
       images:
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_api:v0.1.7
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_api:v0.1.8
   destination:
     server: https://kube.austinbayley.co.uk:6443
     namespace: roam

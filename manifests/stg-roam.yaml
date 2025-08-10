@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: stg-activity
+  name: stg-roam
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://github.com/abayleypublic/activity_tracker_api
-    targetRevision: v0.3.1
+    repoURL: https://github.com/abayleypublic/activity_tracker_charity
+    targetRevision: v1.1.0
     path: deploy/overlays/stg
     kustomize:
       images:
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_api:v0.3.1
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_charity:v1.1.0
   destination:
     server: https://kube.austinbayley.co.uk:6443
-    namespace: stg-activity
+    namespace: stg-roam
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

@@ -7,8 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/abayleypublic/activity_tracker_charity
-    # targetRevision: v1.1.3
-    targetRevision: HEAD
+    targetRevision: v1.1.4
     path: deploy/overlays/stg
     kustomize:
       images:

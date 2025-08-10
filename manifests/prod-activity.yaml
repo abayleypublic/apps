@@ -7,7 +7,8 @@ spec:
   project: default
   source:
     repoURL: https://github.com/abayleypublic/activity_tracker_api
-    targetRevision: v0.3.5
+    # targetRevision: v0.3.5
+    targetRevision: HEAD
     path: deploy/overlays/prod
     kustomize:
       images:

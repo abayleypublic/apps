@@ -12,7 +12,7 @@ spec:
     path: deploy/overlays/stg
     kustomize:
       images:
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_charity:v1.1.2
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_charity:v1.1.1
   destination:
     server: https://kube.austinbayley.co.uk:6443
     namespace: stg-roam

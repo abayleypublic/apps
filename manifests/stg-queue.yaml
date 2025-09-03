@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/abayleypublic/queue
-    targetRevision: test
+    targetRevision: HEAD
     path: deploy/overlays/stg
     kustomize:
       images:

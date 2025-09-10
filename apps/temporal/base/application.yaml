@@ -6,7 +6,6 @@ metadata:
 spec:
   project: temporal
   source:
-    chart: Chart.yaml
     repoURL: https://github.com/abayleypublic/apps
     targetRevision: HEAD
     path: apps/temporal/chart

@@ -1,4 +1,4 @@
-nameOverride: "temporal"
+fullnameOverride: "temporal"
 
 server:
   additionalVolumes:

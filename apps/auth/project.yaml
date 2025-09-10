@@ -9,6 +9,9 @@ spec:
   description: Auth
   sourceRepos:
     - '*'
+  destinations:
+    - namespace: '*'
+      server: '*'
   clusterResourceWhitelist:
     - group: ''
       kind: Namespace

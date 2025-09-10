@@ -9,6 +9,9 @@ spec:
   description: Activity Tracker
   sourceRepos:
     - '*'
+  destinations:
+    - namespace: '*'
+      server: '*'
   clusterResourceWhitelist:
     - group: ''
       kind: Namespace

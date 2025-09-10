@@ -9,6 +9,9 @@ spec:
   description: Queue app demonstrating generative AI capabilities
   sourceRepos:
     - '*'
+  destinations:
+    - namespace: '*'
+      server: '*'
   clusterResourceWhitelist:
     - group: ''
       kind: Namespace

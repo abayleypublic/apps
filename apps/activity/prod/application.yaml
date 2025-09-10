@@ -4,7 +4,7 @@ metadata:
   name: prod-activity
   namespace: argocd
 spec:
-  project: default
+  project: activity
   source:
     repoURL: https://github.com/abayleypublic/activity_tracker_api
     targetRevision: v0.3.6

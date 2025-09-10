@@ -4,7 +4,7 @@ metadata:
   name: prod-roam
   namespace: argocd
 spec:
-  project: default
+  project: activity
   source:
     repoURL: https://github.com/abayleypublic/activity_tracker_charity
     targetRevision: v1.1.5

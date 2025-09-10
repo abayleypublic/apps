@@ -6,7 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  description: Auth
+  description: Queue app demonstrating generative AI capabilities
   sourceRepos:
     - '*'
   clusterResourceWhitelist:

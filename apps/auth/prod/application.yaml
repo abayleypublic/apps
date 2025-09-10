@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-auth
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/abayleypublic/apps
+    targetRevision: HEAD
+    path: apps/auth/prod
+    kustomize:
+      images:
+        - bitnami/oauth2-proxy:7.9.0
+  destination:
+    server: https://kube.austinbayley.co.uk:6443
+    namespace: prod-auth
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true

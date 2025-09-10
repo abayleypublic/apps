@@ -4,7 +4,7 @@ metadata:
   name: stg-auth
   namespace: argocd
 spec:
-  project: default
+  project: auth
   source:
     repoURL: https://github.com/abayleypublic/apps
     targetRevision: HEAD

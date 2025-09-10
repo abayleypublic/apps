@@ -1,17 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: temporal-helm
+  name: temporal
   namespace: argocd
 spec:
   project: temporal
   source:
     repoURL: https://github.com/abayleypublic/apps
     targetRevision: HEAD
-    path: apps/temporal/chart
-    helm:
-      valueFiles:
-        - ../values.yaml
+    path: apps/temporal/base
   destination:
     server: https://kube.austinbayley.co.uk:6443
     namespace: temporal

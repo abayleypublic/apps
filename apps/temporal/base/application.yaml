@@ -11,7 +11,7 @@ spec:
     path: apps/temporal/chart
     helm:
       valueFiles:
-        - apps/temporal/values.yaml
+        - ../values.yaml
   destination:
     server: https://kube.austinbayley.co.uk:6443
     namespace: temporal

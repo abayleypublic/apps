@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/abayleypublic/apps
-    targetRevision: v0.3.6
+    targetRevision: HEAD
     path: apps/auth/stg
     kustomize:
       images:

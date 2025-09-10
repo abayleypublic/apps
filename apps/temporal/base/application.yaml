@@ -11,7 +11,6 @@ spec:
     targetRevision: HEAD
     path: apps/temporal/chart
     helm:
-      releaseName: temporal
       valueFiles:
         - apps/temporal/values.yaml
   destination:

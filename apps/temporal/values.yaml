@@ -1,3 +1,5 @@
+nameOverride: "temporal"
+
 server:
   additionalVolumes:
     - name: temporal-server-tls

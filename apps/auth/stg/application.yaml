@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: stg-auth
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/abayleypublic/activity_tracker_api
+    targetRevision: v0.3.6
+    path: apps/auth/stg
+    kustomize:
+      images:
+        - bitnami/oauth2-proxy:7.9.0
+  destination:
+    server: https://kube.austinbayley.co.uk:6443
+    namespace: stg-auth
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true

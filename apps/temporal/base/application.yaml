@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: temporal
+  namespace: argocd
+spec:
+  project: temporal
+  source:
+    chart: chart
+    repoURL: https://github.com/abayleypublic/apps
+    targetRevision: HEAD
+    path: apps/temporal
+    helm:
+      releaseName: chart
+      valueFiles:
+        - apps/temporal/values.yaml
+  destination:
+    server: https://kube.austinbayley.co.uk:6443
+    namespace: temporal
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true

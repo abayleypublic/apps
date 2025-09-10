@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/abayleypublic/activity_tracker_api
+    repoURL: https://github.com/abayleypublic/apps
     targetRevision: v0.3.6
     path: apps/auth/stg
     kustomize:

@@ -77,7 +77,7 @@ adminTools:
       readOnly: true
   additionalEnv:
     - name: TEMPORAL_ADDRESS
-      value: temporal-frontend:7233
+      value: temporal-frontend.temporal.svc.cluster.local:7233
     - name: TEMPORAL_TLS_SERVER_NAME
       value: temporal
     - name: TEMPORAL_TLS_CERT
@@ -111,7 +111,7 @@ web:
       readOnly: true
   additionalEnv:
     - name: TEMPORAL_ADDRESS
-      value: temporal-frontend:7233
+      value: temporal-frontend.temporal.svc.cluster.local:7233
     - name: TEMPORAL_TLS_SERVER_NAME
       value: temporal
     - name: TEMPORAL_TLS_CERT

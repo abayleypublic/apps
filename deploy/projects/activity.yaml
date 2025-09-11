@@ -3,8 +3,6 @@ kind: AppProject
 metadata:
   name: activity
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   description: Activity Tracker
   sourceRepos:

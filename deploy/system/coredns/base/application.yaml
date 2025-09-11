@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/abayleypublic/apps
     targetRevision: HEAD
-    path: deploy/apps/coredns/base
+    path: deploy/system/coredns/base
   destination:
     server: https://kube.austinbayley.co.uk:6443
     namespace: kube-system

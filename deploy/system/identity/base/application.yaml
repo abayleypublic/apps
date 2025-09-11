@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/abayleypublic/apps
     targetRevision: HEAD
-    path: deploy/apps/identity/base
+    path: deploy/system/identity/base
     kustomize:
       images:
         - alpine/k8s:1.30.13

@@ -1,6 +1,2 @@
-tetragon:
-  grpc:
-    address: "localhost:1337"
-
 export:
   mode: ""

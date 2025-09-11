@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: coredns
+  namespace: argocd
+spec:
+  project: system
+  source:
+    repoURL: https://github.com/abayleypublic/apps
+    targetRevision: HEAD
+    path: deploy/apps/coredns/base
+  destination:
+    server: https://kube.austinbayley.co.uk:6443
+    namespace: kube-system
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true

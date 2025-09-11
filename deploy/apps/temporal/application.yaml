@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/abayleypublic/apps
     targetRevision: HEAD
-    path: apps/temporal/chart
+    path: deploy/apps/temporal/chart
     helm:
       valueFiles:
         - ../values.yaml

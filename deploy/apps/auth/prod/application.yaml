@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/abayleypublic/apps
     targetRevision: HEAD
-    path: apps/auth/prod
+    path: deploy/apps/auth/prod
     kustomize:
       images:
         - bitnami/oauth2-proxy:7.9.0

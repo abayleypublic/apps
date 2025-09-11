@@ -4,7 +4,7 @@ metadata:
   name: temporal-helm
   namespace: argocd
 spec:
-  project: temporal
+  project: system
   source:
     repoURL: https://github.com/abayleypublic/apps
     targetRevision: HEAD

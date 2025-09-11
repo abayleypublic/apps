@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/abayleypublic/apps
     targetRevision: HEAD
-    path: apps/temporal/base
+    path: deploy/apps/temporal/base
   destination:
     server: https://kube.austinbayley.co.uk:6443
     namespace: temporal

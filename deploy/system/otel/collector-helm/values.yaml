@@ -1,3 +1,5 @@
+fullnameOverride: "otel"
+
 mode: deployment
 
 image:

@@ -6,8 +6,6 @@ data:
   obi-config.yml: |
     network:
       enable: false
-    application:
-      enable: true
     attributes:
       kubernetes:
         enable: true
@@ -19,6 +17,10 @@ data:
       traffic_control_backend: tcx
       disable_blackbox_cp: true
       track_request_headers: true
+    prometheus_export:
+      features:
+        - application
+
 ---
 apiVersion: apps/v1
 kind: DaemonSet

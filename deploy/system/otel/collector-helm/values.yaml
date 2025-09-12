@@ -1,0 +1,53 @@
+mode: deployment
+
+config:
+  receivers:
+    otlp:
+      protocols:
+        grpc:
+        http:
+
+  processors:
+    batch: {}
+
+  exporters:
+    otlphttp:
+      endpoint: "https://otlp-gateway-prod-gb-south-1.grafana.net/otlp"
+      headers:
+        Authorization: "Bearer ${env:GRAFANA_CLOUD_API_KEY}"
+
+  service:
+    pipelines:
+      traces:
+        receivers: 
+          - otlp
+        processors:
+          - batch
+        exporters: 
+          - otlphttp
+      metrics:
+        receivers: 
+          - otlp
+        processors: 
+          - batch
+        exporters: 
+          - otlphttp
+      logs:
+        receivers: 
+          - otlp
+        processors: 
+          - batch
+        exporters: 
+          - otlphttp
+
+extraEnvs:
+  - name: GRAFANA_CLOUD_API_KEY
+    valueFrom:
+      secretKeyRef:
+        name: grafana-cloud-credentials
+        key: API_KEY
+
+resources:
+  limits:
+    cpu: 250m
+    memory: 512Mi

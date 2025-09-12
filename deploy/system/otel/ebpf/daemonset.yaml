@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: obi
+  labels:
+    app: obi
+spec:
+  selector:
+    matchLabels:
+      app: obi
+  template:
+    metadata:
+      labels:
+        app: obi
+    spec:
+      hostPID: true
+      serviceAccountName: obi
+      containers:
+        - name: autoinstrument
+          image: otel/ebpf-instrument
+          securityContext:
+            privileged: true
+          env:
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+              value: 'http://otel-collector:4318'
+            - name: OTEL_EBPF_KUBE_METADATA_ENABLE
+              value: 'true'

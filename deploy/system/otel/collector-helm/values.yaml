@@ -19,17 +19,26 @@ config:
   service:
     pipelines:
       traces:
-        receivers: [otlp]
-        processors: [batch]
-        exporters: [otlphttp]
+        receivers: 
+          - otlp
+        processors:
+          - batch
+        exporters: 
+          - otlphttp
       metrics:
-        receivers: [otlp]
-        processors: [batch]
-        exporters: [otlphttp]
+        receivers: 
+          - otlp
+        processors: 
+          - batch
+        exporters: 
+          - otlphttp
       logs:
-        receivers: [otlp]
-        processors: [batch]
-        exporters: [otlphttp]
+        receivers: 
+          - otlp
+        processors: 
+          - batch
+        exporters: 
+          - otlphttp
 
 extraEnvs:
   - name: GRAFANA_CLOUD_API_KEY

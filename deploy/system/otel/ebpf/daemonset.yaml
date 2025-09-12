@@ -20,6 +20,14 @@ spec:
           image: otel/ebpf-instrument
           securityContext:
             privileged: true
+            seccompProfile:
+              type: Unconfined
+            capabilities:
+              add:
+                - BPF
+                - NET_ADMIN
+                - SYS_ADMIN
+                - PERFMON
           env:
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: 'http://otel-collector:4318'

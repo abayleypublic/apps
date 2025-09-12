@@ -17,9 +17,8 @@ data:
       traffic_control_backend: tcx
       disable_blackbox_cp: true
       track_request_headers: true
-    prometheus_export:
-      features:
-        - application
+    otel_metrics_export:
+      features: [application]
 
 ---
 apiVersion: apps/v1

@@ -1,3 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: obi
+  name: obi-config
+data:
+  obi-config.yml: |
+    attributes:
+      kubernetes:
+        enable: true
+    routes:
+      unmatched: heuristic
+    trace_printer: text
+    ebpf:
+      enable_context_propagation: true
+      traffic_control_backend: tcx
+      disable_blackbox_cp: true
+      track_request_headers: true
+---
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -30,8 +49,8 @@ spec:
               value: "autodetect"
             - name: OTEL_EBPF_METRIC_FEATURES
               value: 'network,application'
-            - name: OTEL_EBPF_BPF_CONTEXT_PROPAGATION
-              value: 'all'
+            - name: OTEL_EBPF_CONFIG_PATH
+              value: '/config/obi-config.yml'
           securityContext:
             runAsUser: 0
             readOnlyRootFilesystem: true

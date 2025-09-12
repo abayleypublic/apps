@@ -19,6 +19,8 @@ data:
       track_request_headers: true
     otel_metrics_export:
       features: [application]
+    prometheus_export:
+      features: [application]
 
 ---
 apiVersion: apps/v1

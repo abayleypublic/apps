@@ -1,3 +1,0 @@
-endpoint:
-  address: "otel-collector"
-  port: 4317

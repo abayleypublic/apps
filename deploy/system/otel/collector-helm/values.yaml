@@ -1,14 +1,18 @@
+fullnameOverride: "otel-collector"
+
 mode: deployment
+
+image:
+  repository: "ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-k8s"
 
 config:
   receivers:
     otlp:
       protocols:
         grpc:
+          endpoint: ${env:MY_POD_IP}:4317
         http:
-
-  processors:
-    batch: {}
+          endpoint: ${env:MY_POD_IP}:4318
 
   exporters:
     otlphttp:
@@ -19,17 +23,26 @@ config:
   service:
     pipelines:
       traces:
-        receivers: [otlp]
-        processors: [batch]
-        exporters: [otlphttp]
+        receivers: 
+          - otlp
+        processors:
+          - batch
+        exporters: 
+          - otlphttp
       metrics:
-        receivers: [otlp]
-        processors: [batch]
-        exporters: [otlphttp]
+        receivers: 
+          - otlp
+        processors: 
+          - batch
+        exporters: 
+          - otlphttp
       logs:
-        receivers: [otlp]
-        processors: [batch]
-        exporters: [otlphttp]
+        receivers: 
+          - otlp
+        processors: 
+          - batch
+        exporters: 
+          - otlphttp
 
 extraEnvs:
   - name: GRAFANA_CLOUD_API_KEY

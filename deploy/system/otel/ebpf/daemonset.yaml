@@ -40,8 +40,8 @@ spec:
       containers:
         - name: autoinstrument
           resources:
-          limits:
-            memory: 120Mi
+            limits:
+              memory: 120Mi
           image: otel/ebpf-instrument
           env:
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
@@ -49,7 +49,7 @@ spec:
             - name: OTEL_EBPF_KUBE_METADATA_ENABLE
               value: "autodetect"
             - name: OTEL_EBPF_METRIC_FEATURES
-              value: 'network,application'
+              value: 'application'
             - name: OTEL_EBPF_CONFIG_PATH
               value: '/config/obi-config.yml'
           securityContext:

@@ -6,6 +6,8 @@ data:
   obi-config.yml: |
     network:
       enable: false
+    application:
+      enable: true
     attributes:
       kubernetes:
         enable: true
@@ -48,8 +50,6 @@ spec:
               value: 'http://otel-collector:4318'
             - name: OTEL_EBPF_KUBE_METADATA_ENABLE
               value: "autodetect"
-            - name: OTEL_EBPF_METRIC_FEATURES
-              value: 'application'
             - name: OTEL_EBPF_CONFIG_PATH
               value: '/config/obi-config.yml'
           securityContext:

@@ -25,3 +25,5 @@ spec:
               value: 'http://otel-collector:4318'
             - name: OTEL_EBPF_KUBE_METADATA_ENABLE
               value: 'true'
+            - name: OTEL_EBPF_METRIC_FEATURES
+              value: 'network,application'

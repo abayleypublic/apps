@@ -17,11 +17,8 @@ data:
       traffic_control_backend: tcx
       disable_blackbox_cp: true
       track_request_headers: true
-    otel_metrics_export:
-      features: [application]
-    prometheus_export:
-      features: [application]
-
+    discovery:
+      min_process_age: 5s
 ---
 apiVersion: apps/v1
 kind: DaemonSet

@@ -4,6 +4,8 @@ metadata:
   name: obi-config
 data:
   obi-config.yml: |
+    network:
+      enable: true
     attributes:
       kubernetes:
         enable: true
@@ -11,7 +13,7 @@ data:
       unmatched: heuristic
     trace_printer: text
     ebpf:
-      enable_context_propagation: true
+      context_propagation: all
       traffic_control_backend: tcx
       disable_blackbox_cp: true
       track_request_headers: true
@@ -62,6 +64,7 @@ spec:
                 - DAC_READ_SEARCH
                 - PERFMON
                 - NET_ADMIN
+                - SYS_ADMIN
           volumeMounts:
             - name: cgroup
               mountPath: /sys/fs/cgroup 

@@ -19,6 +19,8 @@ data:
       track_request_headers: true
     discovery:
       min_process_age: 5s
+      instrument:
+        - namespace: kube-system
 ---
 apiVersion: apps/v1
 kind: DaemonSet

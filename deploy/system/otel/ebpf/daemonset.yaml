@@ -19,9 +19,10 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: autoinstrument
+          resources:
+          limits:
+            memory: 120Mi
           image: otel/ebpf-instrument
-          securityContext:
-            privileged: true
           env:
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: 'http://otel-collector:4318'
@@ -29,3 +30,35 @@ spec:
               value: "autodetect"
             - name: OTEL_EBPF_METRIC_FEATURES
               value: 'network,application'
+            - name: OTEL_EBPF_BPF_CONTEXT_PROPAGATION
+              value: 'all'
+          securityContext:
+            runAsUser: 0
+            readOnlyRootFilesystem: true
+            capabilities:
+              add:
+                - BPF
+                - SYS_PTRACE
+                - NET_RAW
+                - CHECKPOINT_RESTORE
+                - DAC_READ_SEARCH
+                - PERFMON
+                - NET_ADMIN
+          volumeMounts:
+            - name: cgroup
+              mountPath: /sys/fs/cgroup 
+            - mountPath: /config
+              name: obi-config
+      tolerations:
+        - effect: NoSchedule
+          operator: Exists
+        - effect: NoExecute
+          operator: Exists
+      volumes:
+        - name: obi-config
+          configMap:
+            name: obi-config
+        - name: cgroup
+          hostPath:
+            path: /sys/fs/cgroup
+          

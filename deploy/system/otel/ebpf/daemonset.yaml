@@ -19,19 +19,46 @@ spec:
         - name: autoinstrument
           image: otel/ebpf-instrument
           securityContext:
-            privileged: true
+            runAsUser: 0
+            readOnlyRootFilesystem: true
             seccompProfile:
               type: Unconfined
             capabilities:
               add:
                 - BPF
+                - SYS_PTRACE
+                - NET_RAW
+                - CHECKPOINT_RESTORE
+                - DAC_READ_SEARCH
+                - PERFMON
                 - NET_ADMIN
                 - SYS_ADMIN
-                - PERFMON
+              drop:
+                - ALL
+          volumeMounts:
+            - name: var-run-obi
+              mountPath: /var/run/obi
+            - name: cgroup
+              mountPath: /sys/fs/cgroup
           env:
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: 'http://otel-collector:4318'
             - name: OTEL_EBPF_KUBE_METADATA_ENABLE
-              value: 'true'
+              value: "autodetect"
             - name: OTEL_EBPF_METRIC_FEATURES
               value: 'network,application'
+            - name: KUBE_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+      tolerations:
+        - effect: NoSchedule
+          operator: Exists
+        - effect: NoExecute
+          operator: Exists
+      volumes:
+        - name: var-run-obi
+          emptyDir: {}
+        - name: cgroup
+          hostPath:
+            path: /sys/fs/cgroup

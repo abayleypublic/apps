@@ -20,7 +20,7 @@ data:
     discovery:
       min_process_age: 5s
       instrument:
-        - namespace: kube-system
+        - k8s_namespace: kube-system
 ---
 apiVersion: apps/v1
 kind: DaemonSet

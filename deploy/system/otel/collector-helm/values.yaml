@@ -8,10 +8,9 @@ config:
     otlp:
       protocols:
         grpc:
+          endpoint: ${env:MY_POD_IP}:4317
         http:
-
-  processors:
-    batch: {}
+          endpoint: ${env:MY_POD_IP}:4318
 
   exporters:
     otlphttp:

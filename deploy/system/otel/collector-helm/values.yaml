@@ -1,4 +1,4 @@
-fullnameOverride: "otel"
+fullnameOverride: "otel-collector"
 
 mode: deployment
 

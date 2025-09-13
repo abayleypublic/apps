@@ -5,7 +5,7 @@ metadata:
 data:
   obi-config.yml: |
     network:
-      enable: true
+      enable: false
     attributes:
       kubernetes:
         enable: true
@@ -13,7 +13,6 @@ data:
       unmatched: heuristic
     trace_printer: text
     ebpf:
-      bpf_debug: true
       context_propagation: headers
       traffic_control_backend: tcx
       track_request_headers: false

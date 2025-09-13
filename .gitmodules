@@ -1,9 +1,6 @@
 [submodule "submodules/temporal"]
 	path = submodules/temporal
 	url = https://github.com/temporalio/helm-charts.git
-[submodule "submodules/tetragon"]
-	path = submodules/tetragon
-	url = https://github.com/cilium/tetragon.git
 [submodule "submodules/otel"]
 	path = submodules/otel
 	url = https://github.com/open-telemetry/opentelemetry-helm-charts.git

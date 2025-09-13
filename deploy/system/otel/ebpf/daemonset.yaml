@@ -6,6 +6,7 @@ data:
   obi-config.yml: |
     network:
       enable: true
+      source: tc
     attributes:
       kubernetes:
         enable: true

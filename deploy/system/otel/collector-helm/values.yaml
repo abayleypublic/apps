@@ -84,60 +84,60 @@ config:
         - sources:
             - from: connection
 
-    exporters:
-      otlphttp/grafana_cloud:
-        endpoint: "https://otlp-gateway-prod-gb-south-1.grafana.net/otlp"
-        auth:
-          authenticator: basicauth/grafana_cloud
+  exporters:
+    otlphttp/grafana_cloud:
+      endpoint: "https://otlp-gateway-prod-gb-south-1.grafana.net/otlp"
+      auth:
+        authenticator: basicauth/grafana_cloud
 
+  extensions:
+    basicauth/grafana_cloud:
+      client_auth:
+        username: "1374854"
+        password: "${env:GRAFANA_CLOUD_API_KEY}"
+
+  connectors:
+    grafanacloud:
+      host_identifiers: 
+        - "k8s.node.name"
+
+  service:
     extensions:
-      basicauth/grafana_cloud:
-        client_auth:
-          username: "1374854"
-          password: "${env:GRAFANA_CLOUD_API_KEY}"
-
-    connectors:
-      grafanacloud:
-        host_identifiers: 
-          - "k8s.node.name"
-
-    service:
-      extensions:
-        - basicauth/grafana_cloud
-      pipelines:
-        traces:
-          receivers: 
-            - otlp
-          processors:
-            - resourcedetection
-            - k8sattributes
-            - transform/drop_unneeded_resource_attributes
-            - batch
-          exporters: 
-            - otlphttp/grafana_cloud
-            - grafanacloud
-        metrics:
-          receivers: 
-            - otlp
-            - hostmetrics
-          processors:
-            - resourcedetection
-            - k8sattributes
-            - transform/drop_unneeded_resource_attributes
-            - transform/add_resource_attributes_as_metric_attributes
-            - batch
-          exporters: 
-            - otlphttp/grafana_cloud
-        logs:
-          receivers: 
-            - otlp
-          processors:
-            - resourcedetection
-            - k8sattributes
-            - transform/drop_unneeded_resource_attributes
-            - batch
-          exporters: 
-            - otlphttp/grafana_cloud
+      - basicauth/grafana_cloud
+    pipelines:
+      traces:
+        receivers: 
+          - otlp
+        processors:
+          - resourcedetection
+          - k8sattributes
+          - transform/drop_unneeded_resource_attributes
+          - batch
+        exporters: 
+          - otlphttp/grafana_cloud
+          - grafanacloud
+      metrics:
+        receivers: 
+          - otlp
+          - hostmetrics
+        processors:
+          - resourcedetection
+          - k8sattributes
+          - transform/drop_unneeded_resource_attributes
+          - transform/add_resource_attributes_as_metric_attributes
+          - batch
+        exporters: 
+          - otlphttp/grafana_cloud
+      logs:
+        receivers: 
+          - otlp
+        processors:
+          - resourcedetection
+          - k8sattributes
+          - transform/drop_unneeded_resource_attributes
+          - batch
+        exporters: 
+          - otlphttp/grafana_cloud
 
 extraEnvs:
   - name: GRAFANA_CLOUD_API_KEY

@@ -104,6 +104,7 @@ config:
   service:
     extensions:
       - basicauth/grafana_cloud
+      - healthcheckv2
     pipelines:
       traces:
         receivers: 

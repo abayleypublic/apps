@@ -120,7 +120,6 @@ config:
         password: "${env:GRAFANA_CLOUD_API_KEY}"
     health_check:
       endpoint: ${env:MY_POD_IP}:13133
-      path: "/health"
 
   connectors:
     grafanacloud:

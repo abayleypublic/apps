@@ -22,7 +22,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: obi
-    namespace: default
+    namespace: observability
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

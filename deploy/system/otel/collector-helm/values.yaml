@@ -18,7 +18,7 @@ config:
     otlphttp:
       endpoint: "https://otlp-gateway-prod-gb-south-1.grafana.net/otlp"
       headers:
-        Authorization: "Bearer ${env:GRAFANA_CLOUD_API_KEY}"
+        Authorization: "Basic ${env:GRAFANA_CLOUD_API_KEY}"
 
   service:
     pipelines:

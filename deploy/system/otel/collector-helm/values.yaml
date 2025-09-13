@@ -109,7 +109,7 @@ config:
         username: "1374854"
         password: "${env:GRAFANA_CLOUD_API_KEY}"
     health_check:
-      endpoint: "0.0.0.0:13133"
+      endpoint: ${env:MY_POD_IP}:13133
       path: "/health"
 
   connectors:

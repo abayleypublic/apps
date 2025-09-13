@@ -5,14 +5,30 @@ metadata:
 data:
   obi-config.yml: |
     network:
-      enable: false
+      enable: true
     attributes:
       kubernetes:
         enable: true
+      select:
+        obi_network_flow_bytes:
+          include:
+          - obi.ip
+          - src.address
+          - dst.address
+          - src.name
+          - dst.name
+          - src.namespace
+          - dst.namespace
+          - src.cidr
+          - dst.cidr
+          - iface
+          - iface_direction
+          - direction
     routes:
       unmatched: heuristic
     trace_printer: text
     ebpf:
+      bpf_debug: true
       context_propagation: headers
       traffic_control_backend: tcx
       track_request_headers: false
@@ -21,6 +37,7 @@ data:
       instrument:
         - k8s_namespace: kube-system
         - k8s_namespace: stg-queue
+    log_level: debug
 ---
 apiVersion: apps/v1
 kind: DaemonSet

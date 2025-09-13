@@ -13,10 +13,10 @@ data:
       unmatched: heuristic
     trace_printer: text
     ebpf:
-      context_propagation: all
+      context_propagation: headers
       traffic_control_backend: tcx
       disable_blackbox_cp: true
-      track_request_headers: true
+      track_request_headers: false
     discovery:
       min_process_age: 5s
       instrument:

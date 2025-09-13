@@ -46,7 +46,7 @@ spec:
         - name: autoinstrument
           resources:
             limits:
-              memory: 512Mi
+              memory: 1Gi
           image: otel/ebpf-instrument
           env:
             - name: OTEL_EXPORTER_OTLP_ENDPOINT

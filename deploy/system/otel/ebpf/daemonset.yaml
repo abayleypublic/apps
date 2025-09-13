@@ -35,7 +35,6 @@ data:
     discovery:
       min_process_age: 5s
       instrument:
-        - k8s_namespace: kube-system
         - k8s_namespace: stg-queue
     log_level: debug
 ---

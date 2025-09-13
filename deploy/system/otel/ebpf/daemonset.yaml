@@ -5,7 +5,7 @@ metadata:
 data:
   obi-config.yml: |
     network:
-      enable: false
+      enable: true
     attributes:
       kubernetes:
         enable: true

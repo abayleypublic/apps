@@ -28,7 +28,6 @@ data:
       unmatched: heuristic
     trace_printer: text
     ebpf:
-      bpf_debug: true
       context_propagation: headers
       traffic_control_backend: tcx
       track_request_headers: false

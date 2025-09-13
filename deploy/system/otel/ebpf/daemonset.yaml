@@ -46,7 +46,7 @@ spec:
         - name: autoinstrument
           resources:
             limits:
-              memory: 120Mi
+              memory: 512Mi
           image: otel/ebpf-instrument
           env:
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
@@ -68,6 +68,7 @@ spec:
                 - PERFMON
                 - NET_ADMIN
                 - SYS_ADMIN
+                - SYS_RESOURCE
           volumeMounts:
             - name: cgroup
               mountPath: /sys/fs/cgroup 

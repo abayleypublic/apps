@@ -7,6 +7,13 @@ image:
 
 clusterRole:
   create: true
+  rules:
+    - apiGroups: ['apps']
+      resources: ['replicasets']
+      verbs: ['list', 'watch']
+    - apiGroups: ['']
+      resources: ['pods', 'services', 'nodes']
+      verbs: ['list', 'watch']
 
 config:
   receivers:

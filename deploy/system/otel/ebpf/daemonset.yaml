@@ -52,6 +52,7 @@ spec:
               memory: 512Mi
               cpu: 500m
           image: otel/ebpf-instrument
+          command: ["/bin/sh", "-c", "sleep 3600"]
           env:
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: 'http://otel-collector:4318'

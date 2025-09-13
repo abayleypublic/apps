@@ -15,6 +15,16 @@ clusterRole:
       resources: ['pods', 'services', 'nodes']
       verbs: ['list', 'watch']
 
+livenessProbe:
+  httpGet:
+    port: 13133
+    path: /
+
+readinessProbe:
+  httpGet:
+    port: 13133
+    path: /
+
 config:
   receivers:
     otlp:

@@ -122,7 +122,6 @@ config:
           - batch
         exporters: 
           - otlphttp/grafana_cloud
-          - grafanacloud
       metrics:
         receivers: 
           - otlp

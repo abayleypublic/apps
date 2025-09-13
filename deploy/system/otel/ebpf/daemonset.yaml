@@ -21,6 +21,7 @@ data:
       min_process_age: 5s
       instrument:
         - k8s_namespace: kube-system
+        - k8s_namespace: stg-queue
 ---
 apiVersion: apps/v1
 kind: DaemonSet

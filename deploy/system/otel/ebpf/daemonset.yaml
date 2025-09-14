@@ -14,7 +14,7 @@ data:
       unmatched: heuristic
     trace_printer: text
     ebpf:
-      context_propagation: all
+      context_propagation: headers
       traffic_control_backend: tcx
       disable_blackbox_cp: true
       track_request_headers: true
@@ -74,10 +74,10 @@ spec:
                 - SYS_ADMIN
                 - SYS_RESOURCE
           volumeMounts:
-            - name: cgroup
-              mountPath: /sys/fs/cgroup 
             - mountPath: /config
               name: obi-config
+            - /sys/kernel/security:/sys/kernel/security
+            - /sys/fs/cgroup:/sys/fs/cgroup
       tolerations:
         - effect: NoSchedule
           operator: Exists
@@ -87,7 +87,4 @@ spec:
         - name: obi-config
           configMap:
             name: obi-config
-        - name: cgroup
-          hostPath:
-            path: /sys/fs/cgroup
           

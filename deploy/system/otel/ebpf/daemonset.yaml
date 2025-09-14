@@ -7,7 +7,6 @@ data:
     network:
       enable: true
       source: tc
-      agent_ip_iface: "name:enp0s6"
     attributes:
       kubernetes:
         enable: true
@@ -31,7 +30,7 @@ data:
     trace_printer: text
     ebpf:
       context_propagation: headers
-      traffic_control_backend: tcx
+      traffic_control_backend: tc
       track_request_headers: false
     discovery:
       min_process_age: 5s

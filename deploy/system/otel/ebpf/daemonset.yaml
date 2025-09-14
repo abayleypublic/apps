@@ -74,10 +74,12 @@ spec:
                 - SYS_ADMIN
                 - SYS_RESOURCE
           volumeMounts:
-            - mountPath: /config
-              name: obi-config
-            - /sys/kernel/security:/sys/kernel/security
-            - /sys/fs/cgroup:/sys/fs/cgroup
+            - name: obi-config
+              mountPath: /config
+            - name: cgroup
+              mountPath: /sys/fs/cgroup 
+            - name: security
+              mountPath: /sys/kernel/security
       tolerations:
         - effect: NoSchedule
           operator: Exists
@@ -87,4 +89,9 @@ spec:
         - name: obi-config
           configMap:
             name: obi-config
-          
+        - name: cgroup
+          hostPath:
+            path: /sys/fs/cgroup
+        - name: security
+          hostPath:
+            path: /sys/kernel/security

@@ -22,7 +22,6 @@ data:
       min_process_age: 5s
       instrument:
         - k8s_namespace: stg-queue
-        - k8s_namespace: temporal
 ---
 apiVersion: apps/v1
 kind: DaemonSet

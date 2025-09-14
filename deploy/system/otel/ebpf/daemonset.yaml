@@ -30,7 +30,7 @@ data:
     trace_printer: text
     ebpf:
       context_propagation: headers
-      traffic_control_backend: tc
+      traffic_control_backend: tcx
       track_request_headers: false
     discovery:
       min_process_age: 5s

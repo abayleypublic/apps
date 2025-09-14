@@ -7,6 +7,7 @@ data:
     network:
       enable: true
       source: tc
+      agent_ip_iface: "name:enp0s6"
     attributes:
       kubernetes:
         enable: true
@@ -73,8 +74,6 @@ spec:
               value: "autodetect"
             - name: OTEL_EBPF_CONFIG_PATH
               value: '/config/obi-config.yml'
-            - name: LIBBPF_DEBUG
-              value: "1"
           securityContext:
             runAsUser: 0
             readOnlyRootFilesystem: true

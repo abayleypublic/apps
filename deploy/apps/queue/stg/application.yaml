@@ -12,7 +12,7 @@ spec:
     kustomize:
       images:
         - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_backend:test
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_gateway:test
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_gateway:test-6
         - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_mcp:test
         - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_service:test-3
         - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_ui:test-4

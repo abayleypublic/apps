@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/abayleypublic/apps
     targetRevision: HEAD
-    path: deploy/system/otel/collector-helm/chart
+    path: deploy/system/otel/operator-helm/chart
     helm:
       valueFiles:
         - ../values.yaml

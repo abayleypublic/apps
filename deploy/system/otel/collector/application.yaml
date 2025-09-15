@@ -9,6 +9,9 @@ spec:
     repoURL: https://github.com/abayleypublic/apps
     targetRevision: HEAD
     path: deploy/system/otel/collector
+    kustomize:
+      images:
+        - ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.134.1
   destination:
     server: https://kube.austinbayley.co.uk:6443
     namespace: observability

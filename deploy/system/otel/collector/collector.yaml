@@ -143,16 +143,6 @@ spec:
             - batch
           exporters: 
             - otlphttp/grafana_cloud
-  
-  livenessProbe:
-    httpGet:
-      port: 13133
-      path: /
-
-  readinessProbe:
-    httpGet:
-      port: 13133
-      path: /
 
   env:
     - name: GRAFANA_CLOUD_API_KEY
@@ -162,6 +152,6 @@ spec:
           key: API_KEY
   
   resources:
-  limits:
-    cpu: 250m
-    memory: 512Mi
+    limits:
+      cpu: 250m
+      memory: 512Mi

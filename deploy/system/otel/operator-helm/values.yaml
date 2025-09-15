@@ -4,17 +4,6 @@ manager:
   collectorImage:
     repository: "ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib"
 
-  autoInstrumentationImage:
-    python:
-      repository: "ghcr.io/open-telemetry/opentelemetry-operator/autoinstrumentation-python"
-      tag: "0.54b1"
-    go:
-      repository: "ghcr.io/open-telemetry/opentelemetry-go-instrumentation/autoinstrumentation-go"
-      tag: "v0.21.0"
-    apacheHttpd:
-      repository: "ghcr.io/open-telemetry/opentelemetry-operator/autoinstrumentation-apache-httpd"
-      tag: "1.0.4"
-
   autoInstrumentation:
     go:
       enabled: true

@@ -4,4 +4,3 @@ resources:
   - secrets.yaml
   - serviceaccount.yaml
   - collector.yaml
-  - instrumentation.yaml

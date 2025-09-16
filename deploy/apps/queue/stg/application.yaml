@@ -14,7 +14,7 @@ spec:
         - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_backend:test
         - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_gateway:test-6
         - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_mcp:test
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_service:test-8
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_service:test-9
         - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_ui:test-4
   destination:
     server: https://kube.austinbayley.co.uk:6443

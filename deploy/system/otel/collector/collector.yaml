@@ -16,7 +16,7 @@ spec:
             endpoint: 0.0.0.0:4318
       filelog:
         include:
-          - /var/log/pods/*/*/*.log
+          - /var/log/pods/*.log
         exclude:
           - /var/log/pods/*/otel-collector/*.log
         start_at: end

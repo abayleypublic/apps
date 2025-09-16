@@ -18,7 +18,12 @@ spec:
         include:
           - /var/log/pods/*/*/*.log
         exclude:
-          - /var/log/pods/*/otel-collector/*.log
+          - /var/log/pods/*/envoy*/*.log
+          - /var/log/pods/*/notification-controller/*.log
+          - /var/log/pods/*/application-controller/*.log
+          - /var/log/pods/*/repo-server/*.log
+          - /var/log/pods/*/autoinstrument/*.log
+          - /var/log/pods/*/cilium-agent/*.log
         start_at: end
         include_file_path: true
         include_file_name: false
@@ -234,13 +239,7 @@ spec:
     - name: varlogpods
       mountPath: /var/log/pods
       readOnly: true
-    # - name: varlibdockercontainers
-    #   mountPath: /var/lib/docker/containers
-    #   readOnly: true
   volumes:
     - name: varlogpods
       hostPath:
         path: /var/log/pods
-    # - name: varlibdockercontainers
-    #   hostPath:
-    #     path: /var/lib/docker/containers

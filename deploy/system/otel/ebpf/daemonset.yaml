@@ -54,7 +54,7 @@ spec:
           image: otel/ebpf-instrument
           env:
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
-              value: 'http://otel-collector:4318'
+              value: 'http://otel-collector:4317'
             - name: OTEL_EBPF_KUBE_METADATA_ENABLE
               value: "autodetect"
             - name: OTEL_EBPF_CONFIG_PATH

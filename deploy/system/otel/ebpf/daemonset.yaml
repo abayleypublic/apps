@@ -20,8 +20,15 @@ data:
       track_request_headers: true
     discovery:
       min_process_age: 5s
+      # exclude_otel_instrumented_services: true
       instrument:
-        - k8s_namespace: stg-queue
+        - k8s_pod_annotations:
+            ebpf.instrument: "true"
+        - k8s_pod_annotations:
+            ebpf.instrument: "python"
+          exe_path: "*/python3.*"
+      # exclude_instrument:
+      #   - exe_path: "*/uv"
 ---
 apiVersion: apps/v1
 kind: DaemonSet

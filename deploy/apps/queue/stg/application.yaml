@@ -11,11 +11,11 @@ spec:
     path: deploy/overlays/stg
     kustomize:
       images:
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_backend:v0.1.4
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_gateway:v0.1.2
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_mcp:v0.1.0
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_service:v0.1.0
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_ui:v0.1.0
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_backend:v0.1.5
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_gateway:v0.1.5
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_mcp:v0.1.5
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_service:v0.1.5
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_ui:v0.1.5
   destination:
     server: https://kube.austinbayley.co.uk:6443
     namespace: stg-queue

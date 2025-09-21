@@ -6,4 +6,4 @@ resources:
 configMapGenerator:
   - name: obi-config
     files:
-      - config.yml
+      - config.yaml

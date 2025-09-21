@@ -1,30 +1,24 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: obi-config
-data:
-  obi-config.yml: |
-    network:
-      enable: true
-      source: tc
-    attributes:
-      kubernetes:
-        enable: true
-    routes:
-      unmatched: heuristic
-    trace_printer: text
-    ebpf:
-      context_propagation: all
-      traffic_control_backend: tcx
-      disable_blackbox_cp: false
-      track_request_headers: true
-    discovery:
-      min_process_age: 5s
-      # exclude_otel_instrumented_services: true
-      instrument:
-        - k8s_pod_annotations:
-            ebpf.instrument: "true"
-        - k8s_pod_annotations:
-            ebpf.instrument: "python"
-          exe_path: "*/python3.*"
-        # - k8s_namespace: temporal
+network:
+  enable: true
+  source: tc
+attributes:
+  kubernetes:
+    enable: true
+routes:
+  unmatched: heuristic
+trace_printer: text
+ebpf:
+  context_propagation: all
+  traffic_control_backend: tcx
+  disable_blackbox_cp: false
+  track_request_headers: true
+discovery:
+  min_process_age: 5s
+  # exclude_otel_instrumented_services: true
+  instrument:
+    - k8s_pod_annotations:
+        ebpf.instrument: "true"
+    - k8s_pod_annotations:
+        ebpf.instrument: "python"
+      exe_path: "*/python3.*"
+    # - k8s_namespace: temporal

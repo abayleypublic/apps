@@ -166,6 +166,15 @@ spec:
           - sources:
               - from: connection
 
+      filter/healthchecks:
+        error_mode: ignore
+        traces:
+          span:
+            - 'attributes["http.route"] != nil and IsMatch(attributes["http.route"], "^/(health(z)?|ready|live)$")'
+            - 'attributes["url.path"] != nil and IsMatch(attributes["url.path"], "^/(health(z)?|ready|live)$")'
+            - 'IsMatch(name, "^(GET|HEAD) /(?:healthz?|ready|live)$")'
+            - 'attributes["rpc.system"] == "grpc" and attributes["rpc.service"] == "grpc.health.v1.Health" and attributes["rpc.method"] == "Check"'
+
     exporters:
       otlphttp/grafana_cloud:
         endpoint: "https://otlp-gateway-prod-gb-south-1.grafana.net/otlp"
@@ -197,6 +206,7 @@ spec:
             - resourcedetection
             - k8sattributes
             - transform/drop_unneeded_resource_attributes
+            - filter/healthchecks
             - batch
           exporters: 
             - otlphttp/grafana_cloud

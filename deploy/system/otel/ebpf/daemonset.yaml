@@ -28,6 +28,7 @@ data:
             ebpf.instrument: "python"
           exe_path: "*/python3.*"
         # - k8s_namespace: temporal
+        - k8s_namespace: "envoy-gateway-system"
 ---
 apiVersion: apps/v1
 kind: DaemonSet

@@ -171,21 +171,33 @@ spec:
         num_traces: 100
         expected_new_traces_per_sec: 10
         policies:
-          - name: keep-when-root-is-not-health
-            type: ottl_condition
-            ottl_condition:
-              error_mode: ignore
-              span: >
-                not (
-                  IsRootSpan() and (
-                    (attributes["http.route"] != nil and IsMatch(attributes["http.route"], "^/(health(z)?|ready|live)$")) or
-                    (attributes["url.path"]  != nil and IsMatch(attributes["url.path"],  "^/(health(z)?|ready|live)$")) or
-                    IsMatch(name, "^(GET|HEAD) /(?:healthz?|ready|live)$") or
-                    (attributes["rpc.system"] == "grpc" and
-                    attributes["rpc.service"] == "grpc.health.v1.Health" and
-                    attributes["rpc.method"] == "Check")
-                  )
-                )
+          - name: keep-errors
+            type: status_code
+            status_code:
+              status_codes: [ERROR]
+
+          - name: keep-non-health-http-route
+            type: string_attribute
+            string_attribute:
+              key: http.route
+              enabled_regex_matching: true
+              invert_match: true
+              value: ^/(healthz?|ready|live)$
+
+          - name: keep-non-health-url-path
+            type: string_attribute
+            string_attribute:
+              key: url.path
+              enabled_regex_matching: true
+              invert_match: true
+              value: ^/(healthz?|ready|live)$
+
+          - name: keep-non-grpc-health
+            type: string_attribute
+            string_attribute:
+              key: rpc.service
+              values: [grpc.health.v1.Health]
+              invert_match: true
 
     exporters:
       otlphttp/grafana_cloud:

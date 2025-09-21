@@ -27,8 +27,7 @@ data:
         - k8s_pod_annotations:
             ebpf.instrument: "python"
           exe_path: "*/python3.*"
-      # exclude_instrument:
-      #   - exe_path: "*/uv"
+        # - k8s_namespace: temporal
 ---
 apiVersion: apps/v1
 kind: DaemonSet

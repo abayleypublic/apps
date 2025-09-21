@@ -38,6 +38,11 @@ metadata:
 spec:
   schedule: "*/50 * * * *"
   jobTemplate:
+    metadata:
+      labels:
+        app: refresh-gcp-pull-secret
+      annotations:
+        ebpf.instrument: "true"
     spec:
       template:
         spec:

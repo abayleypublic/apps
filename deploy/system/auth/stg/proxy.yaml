@@ -11,6 +11,8 @@ spec:
     metadata:
       labels:
         app: oauth2-proxy
+      annotations:
+        ebpf.instrument: "true"
     spec:
       containers:
         - name: oauth2-proxy

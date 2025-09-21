@@ -3,3 +3,7 @@ kind: Kustomization
 resources:
   - roles.yaml
   - daemonset.yaml
+configMapGenerator:
+  - name: obi-config
+    files:
+      - config.yaml

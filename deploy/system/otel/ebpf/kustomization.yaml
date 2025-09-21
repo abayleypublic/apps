@@ -10,4 +10,4 @@ generatorOptions:
 configMapGenerator:
   - name: obi-config
     files:
-      - config.yaml=obi-config.yaml
+      - obi-config.yaml=config.yaml

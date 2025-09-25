@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tetragon-helm
+  namespace: argocd
+spec:
+  project: system
+  source:
+    repoURL: https://github.com/abayleypublic/apps
+    targetRevision: HEAD
+    path: deploy/system/tetragon/chart
+    helm:
+      valueFiles:
+        - ../values.yaml
+  destination:
+    server: https://kube.austinbayley.co.uk:6443
+    namespace: kube-system
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true

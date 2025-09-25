@@ -1,3 +1,5 @@
+# Copied from https://raw.githubusercontent.com/cilium/tetragon/main/examples/policylibrary/privileges/privileges-raise.yaml
+# Referenced in https://tetragon.io/docs/policy-library/observability/
 # This 'privileges-raise' Tracing Policy monitors processes trying
 # to raise their privileges:
 #

@@ -11,7 +11,7 @@ spec:
     path: deploy/system/auth/stg
     kustomize:
       images:
-        - quay.io/oauth2-proxy/oauth2-proxy:7.12.0-alpine
+        - quay.io/oauth2-proxy/oauth2-proxy:v7.12.0-alpine
   destination:
     server: https://kube.austinbayley.co.uk:6443
     namespace: stg-auth

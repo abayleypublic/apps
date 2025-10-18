@@ -28,6 +28,7 @@ spec:
             - --skip-jwt-bearer-tokens=true
             - --set-xauthrequest=true
             - --cookie-name=ausibay-stg
+            - --cookie-samesite=none
             - --cookie-secret=$(COOKIE_SECRET)
             - --cookie-secure=true
             - --cookie-domain=stg.austinbayley.co.uk

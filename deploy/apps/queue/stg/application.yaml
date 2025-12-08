@@ -7,15 +7,15 @@ spec:
   project: queue
   source:
     repoURL: https://github.com/abayleypublic/queue
-    targetRevision: v0.1.8
+    targetRevision: v0.1.10
     path: deploy/overlays/stg
     kustomize:
       images:
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_backend:v0.1.8
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_gateway:v0.1.8
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_mcp:v0.1.8
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_service:v0.1.8
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_ui:v0.1.8
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_backend:v0.1.10
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_gateway:v0.1.10
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_mcp:v0.1.10
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_service:v0.1.10
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_ui:v0.1.10
   destination:
     server: https://kube.austinbayley.co.uk:6443
     namespace: stg-queue

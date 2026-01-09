@@ -7,7 +7,7 @@ spec:
   project: queue
   source:
     repoURL: https://github.com/abayleypublic/queue
-    targetRevision: v1.0.1
+    targetRevision: HEAD
     path: deploy/overlays/prod
     kustomize:
       images:

@@ -1,25 +1,25 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: prod-queue
-#   namespace: argocd
-# spec:
-#   project: queue
-#   source:
-#     repoURL: https://github.com/abayleypublic/queue
-#     targetRevision: HEAD
-#     path: deploy/overlays/prod
-#     kustomize:
-#       images:
-#         - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_backend:v1.0.1
-#         - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_gateway:v1.0.1
-#         - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_mcp:v1.0.1
-#         - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_service:v1.0.1
-#         - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_ui:v1.0.1
-#   destination:
-#     server: https://kube.austinbayley.co.uk:6443
-#     namespace: prod-queue
-#   syncPolicy:
-#     syncOptions:
-#       - CreateNamespace=true
-#       - ApplyOutOfSyncOnly=true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-queue
+  namespace: argocd
+spec:
+  project: queue
+  source:
+    repoURL: https://github.com/abayleypublic/queue
+    targetRevision: HEAD
+    path: deploy/overlays/prod
+    kustomize:
+      images:
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_backend:v1.1.0
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_gateway:v1.1.0
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_mcp:v1.1.0
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_service:v1.1.0
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_ui:v1.1.0
+  destination:
+    server: https://kube.austinbayley.co.uk:6443
+    namespace: prod-queue
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true

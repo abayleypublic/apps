@@ -38,6 +38,7 @@ spec:
             - --resource=https://austinbayley.co.uk
             - --scope=openid profile email
             - --oidc-groups-claim=https://austinbayley.co.uk/groups
+            - --pass-authorization-header=true
           envFrom:
             - secretRef:
                 name: proxy-secrets

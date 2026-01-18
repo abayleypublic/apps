@@ -39,6 +39,8 @@ spec:
             - --scope=openid profile email
             - --oidc-groups-claim=https://austinbayley.co.uk/groups
             - --set-authorization-header=true
+            - --backend-logout-url=https://dev-hoo0x1gbvzrm2jd2.uk.auth0.com/v2/logout
+            - --whitelist-domains=.uk.auth0.com
           envFrom:
             - secretRef:
                 name: proxy-secrets

@@ -35,9 +35,9 @@ spec:
             - --reverse-proxy=true
             - --real-client-ip-header=X-Forwarded-For
             - --upstream="static://200"
-            - --resource=https://stg.austinbayley.co.uk
+            - --resource=https://austinbayley.co.uk
             - --scope=openid profile email
-            - --oidc-groups-claim=https://stg.austinbayley.co.uk/groups
+            - --oidc-groups-claim=https://austinbayley.co.uk/groups
             - --set-authorization-header=true
             - --backend-logout-url=https://dev-hoo0x1gbvzrm2jd2.uk.auth0.com/v2/logout
             - --whitelist-domain=.uk.auth0.com

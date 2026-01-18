@@ -11,7 +11,7 @@ spec:
     path: deploy/system/otel/ebpf
     kustomize:
       images:
-        - otel/ebpf-instrument:v0.3.0
+        - otel/ebpf-instrument:v0.4.1
   destination:
     server: https://kube.austinbayley.co.uk:6443
     namespace: observability

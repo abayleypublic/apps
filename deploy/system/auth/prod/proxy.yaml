@@ -41,6 +41,7 @@ spec:
             - --set-authorization-header=true
             - --backend-logout-url=https://dev-hoo0x1gbvzrm2jd2.uk.auth0.com/v2/logout
             - --whitelist-domain=.uk.auth0.com
+            - --prompt=login
           envFrom:
             - secretRef:
                 name: proxy-secrets

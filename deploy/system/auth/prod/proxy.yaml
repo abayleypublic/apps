@@ -93,3 +93,20 @@ spec:
     - group: ""
       kind: Service
       name: oauth2-proxy
+---
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: ReferenceGrant
+metadata:
+  name: allow-account-ext-auth
+spec:
+  from:
+    - group: gateway.envoyproxy.io
+      kind: SecurityPolicy
+      namespace: prod-account
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      namespace: prod-account
+  to:
+    - group: ""
+      kind: Service
+      name: oauth2-proxy

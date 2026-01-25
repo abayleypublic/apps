@@ -1,22 +1,22 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: prod-account
-#   namespace: argocd
-# spec:
-#   project: account
-#   source:
-#     repoURL: https://github.com/abayleypublic/account
-#     targetRevision: v0.0.8
-#     path: deploy/overlays/prod
-#     kustomize:
-#       images:
-#         - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/account_backend:v0.0.8
-#         - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/account_ui:v0.0.8
-#   destination:
-#     server: https://kube.austinbayley.co.uk:6443
-#     namespace: prod-account
-#   syncPolicy:
-#     syncOptions:
-#       - CreateNamespace=true
-#       - ApplyOutOfSyncOnly=true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-account
+  namespace: argocd
+spec:
+  project: account
+  source:
+    repoURL: https://github.com/abayleypublic/account
+    targetRevision: v0.0.8
+    path: deploy/overlays/prod
+    kustomize:
+      images:
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/account_backend:v0.0.8
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/account_ui:v0.0.8
+  destination:
+    server: https://kube.austinbayley.co.uk:6443
+    namespace: prod-account
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true

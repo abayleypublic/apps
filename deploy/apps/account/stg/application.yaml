@@ -7,7 +7,7 @@ spec:
   project: account
   source:
     repoURL: https://github.com/abayleypublic/account
-    targetRevision: HEAD
+    targetRevision: v0.0.8
     path: deploy/overlays/stg
     kustomize:
       images:

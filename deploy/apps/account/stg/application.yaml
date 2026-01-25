@@ -11,8 +11,8 @@ spec:
     path: deploy/overlays/stg
     kustomize:
       images:
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/account_backend:v0.0.2
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/account_ui:v0.0.2
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/account_backend:v0.0.3
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/account_ui:v0.0.3
   destination:
     server: https://kube.austinbayley.co.uk:6443
     namespace: stg-account

@@ -7,12 +7,12 @@ spec:
   project: account
   source:
     repoURL: https://github.com/abayleypublic/account
-    targetRevision: v0.0.13
+    targetRevision: v0.1,0
     path: deploy/overlays/prod
     kustomize:
       images:
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/account_backend:v0.0.13
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/account_ui:v0.0.13
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/account_backend:v0.1.0
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/account_ui:v0.1.0
   destination:
     server: https://kube.austinbayley.co.uk:6443
     namespace: prod-account

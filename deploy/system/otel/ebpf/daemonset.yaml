@@ -51,10 +51,13 @@ spec:
           volumeMounts:
             - name: obi-config
               mountPath: /config
+              readOnly: true
             - name: cgroup
               mountPath: /sys/fs/cgroup 
+              readOnly: true
             - name: security
               mountPath: /sys/kernel/security
+              readOnly: true
       tolerations:
         - effect: NoSchedule
           operator: Exists

@@ -14,10 +14,6 @@ data:
     </head>
     <body class="bg-gray-100 min-h-screen flex items-center justify-center p-5">
         <div class="bg-white rounded-lg shadow-lg max-w-2xl w-full p-12 text-center">
-            <div class="text-8xl font-bold text-red-600 mb-4">
-                {{.StatusCode}}
-            </div>
-            
             {{if eq .StatusCode 403}}
             <h1 class="text-gray-900 text-3xl font-semibold mb-6">
                 Access Denied
@@ -34,7 +30,7 @@ data:
                 <ul class="space-y-3">
                     <li class="flex items-start text-gray-600 py-3 border-b border-gray-200">
                         <span class="text-blue-600 text-xl font-bold mr-3 flex-shrink-0">✓</span>
-                        <span>Your email address is verified</span>
+                        <span>Your email address is verified (please check spam folder)</span>
                     </li>
                     <li class="flex items-start text-gray-600 py-3 border-b border-gray-200">
                         <span class="text-blue-600 text-xl font-bold mr-3 flex-shrink-0">✓</span>
@@ -100,12 +96,6 @@ data:
                     account@austinbayley.co.uk
                 </a>
             </div>
-            
-            {{if .Message}}
-            <div class="mt-8 pt-6 border-t border-gray-200 text-sm text-gray-500">
-                <strong>Error Details:</strong> {{.Message}}
-            </div>
-            {{end}}
         </div>
     </body>
     </html>

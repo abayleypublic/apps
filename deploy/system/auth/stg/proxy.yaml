@@ -42,12 +42,21 @@ spec:
             - --backend-logout-url=https://dev-hoo0x1gbvzrm2jd2.uk.auth0.com/v2/logout
             - --whitelist-domain=.uk.auth0.com
             - --prompt=login
+            - --custom-templates-dir=/templates
           envFrom:
             - secretRef:
                 name: proxy-secrets
           ports:
             - name: http
               containerPort: 4180
+          volumeMounts:
+            - name: templates
+              mountPath: /templates
+              readOnly: true
+      volumes:
+        - name: templates
+          configMap:
+            name: templates
 ---
 apiVersion: v1
 kind: Service

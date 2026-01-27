@@ -1,0 +1,111 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: templates
+data:
+  error.html: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Access Denied - {{.StatusCode}}</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-100 min-h-screen flex items-center justify-center p-5">
+        <div class="bg-white rounded-lg shadow-lg max-w-2xl w-full p-12 text-center">
+            <div class="text-8xl font-bold text-red-600 mb-4">
+                {{.StatusCode}}
+            </div>
+            
+            {{if eq .StatusCode 403}}
+            <h1 class="text-gray-900 text-3xl font-semibold mb-6">
+                Access Denied
+            </h1>
+            
+            <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                You don't have permission to access this application.
+            </p>
+            
+            <div class="bg-gray-50 rounded-lg p-6 mb-8 text-left">
+                <h2 class="text-gray-900 text-xl font-semibold mb-4">
+                    Please verify:
+                </h2>
+                <ul class="space-y-3">
+                    <li class="flex items-start text-gray-600 py-3 border-b border-gray-200">
+                        <span class="text-blue-600 text-xl font-bold mr-3 flex-shrink-0">✓</span>
+                        <span>Your email address is verified</span>
+                    </li>
+                    <li class="flex items-start text-gray-600 py-3 border-b border-gray-200">
+                        <span class="text-blue-600 text-xl font-bold mr-3 flex-shrink-0">✓</span>
+                        <span>You have the correct permissions for this application</span>
+                    </li>
+                    <li class="flex items-start text-gray-600 py-3">
+                        <span class="text-blue-600 text-xl font-bold mr-3 flex-shrink-0">✓</span>
+                        <span>You're using the correct account</span>
+                    </li>
+                </ul>
+            </div>
+            
+            {{else if eq .StatusCode 401}}
+            <h1 class="text-gray-900 text-3xl font-semibold mb-6">
+                Authentication Required
+            </h1>
+            
+            <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                You need to sign in to access this application.
+            </p>
+            
+            {{else if eq .StatusCode 500}}
+            <h1 class="text-gray-900 text-3xl font-semibold mb-6">
+                Authentication Error
+            </h1>
+            
+            <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                Something went wrong with the authentication service.
+            </p>
+            
+            <div class="bg-red-50 border border-red-200 rounded-lg p-6 mb-8 text-left">
+                <h2 class="text-red-900 text-xl font-semibold mb-4">
+                    What you can do:
+                </h2>
+                <ul class="space-y-2 text-red-800">
+                    <li class="flex items-start py-2">
+                        <span class="mr-3">•</span>
+                        <span>Wait a few minutes and try again</span>
+                    </li>
+                </ul>
+            </div>
+            
+            {{else}}
+            <h1 class="text-gray-900 text-3xl font-semibold mb-6">
+                Access Error
+            </h1>
+            
+            <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                An error occurred while trying to access this application.
+            </p>
+            
+            {{end}}
+            
+            <a href="/oauth2/sign_in" 
+               class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-lg font-semibold text-base transition-colors">
+                Sign In Again
+            </a>
+            
+            <div class="mt-6 text-gray-500 text-sm">
+                Need help? Please contact
+                <a href="mailto:account@austinbayley.co.uk" 
+                   class="text-blue-600 font-medium hover:underline">
+                    account@austinbayley.co.uk
+                </a>
+            </div>
+            
+            {{if .Message}}
+            <div class="mt-8 pt-6 border-t border-gray-200 text-sm text-gray-500">
+                <strong>Error Details:</strong> {{.Message}}
+            </div>
+            {{end}}
+        </div>
+    </body>
+    </html>

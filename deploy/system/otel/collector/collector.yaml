@@ -175,6 +175,39 @@ spec:
             - 'IsMatch(name, "^(GET|HEAD) /(?:healthz?|ready|live)$")'
             - 'attributes["rpc.system"] == "grpc" and attributes["rpc.service"] == "grpc.health.v1.Health" and attributes["rpc.method"] == "Check"'
 
+      redaction:
+        allow_all_keys: true
+        redact_all_types: true
+        blocked_key_patterns:
+          - ".*token.*"
+          - ".*api_key.*"
+        hash_function: md5
+        summary: info
+        url_sanitizer:
+          enabled: true
+          attributes: ["http.url", "url"]
+          sanitize_span_name: true
+        db_sanitizer:
+          sanitize_span_name: true
+          sql:
+            enabled: true
+            attributes: ["db.statement", "db.query"]
+          redis:
+            enabled: true
+            attributes: ["db.statement", "redis.command"]
+          memcached:
+            enabled: true
+            attributes: ["db.statement", "memcached.command"] 
+          mongo:
+            enabled: true
+            attributes: ["db.statement", "mongodb.query"]
+          opensearch:
+            enabled: true
+            attributes: ["db.statement", "opensearch.body"]
+          es:
+            enabled: true
+            attributes: ["db.statement", "elasticsearch.body"]
+
     exporters:
       otlphttp/grafana_cloud:
         endpoint: "https://otlp-gateway-prod-gb-south-1.grafana.net/otlp"
@@ -205,6 +238,7 @@ spec:
           processors:
             - resourcedetection
             - k8sattributes
+            - redaction
             - transform/drop_unneeded_resource_attributes
             - filter/healthchecks
             - batch
@@ -217,6 +251,7 @@ spec:
             - resourcedetection
             - k8sattributes
             - transform/drop_unneeded_resource_attributes
+            - redaction
             - transform/add_resource_attributes_as_metric_attributes
             - batch
           exporters: 
@@ -228,6 +263,7 @@ spec:
           processors:
             - resourcedetection
             - k8sattributes
+            - redaction
             - transform/drop_unneeded_resource_attributes
             - batch
           exporters: 

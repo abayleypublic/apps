@@ -1,3 +1,7 @@
+# Adapted from:
+# - https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/examples/kubernetes/otel-collector.yaml
+# - https://grafana.com/docs/opentelemetry/collector/opentelemetry-collector/#advanced-manual-setup
+
 apiVersion: opentelemetry.io/v1beta1
 kind: OpenTelemetryCollector
 metadata:
@@ -176,16 +180,164 @@ spec:
             - 'attributes["rpc.system"] == "grpc" and attributes["rpc.service"] == "grpc.health.v1.Health" and attributes["rpc.method"] == "Check"'
 
       redaction:
-        allow_all_keys: true
+        allow_all_keys: false
         redact_all_types: true
+        allowed_keys:
+          # General
+          - server.address
+          - server.port
+          - client.port
+          - source.port
+          - destination.address
+          - destination.port
+          
+          # Network
+          - network.carrier.icc
+          - network.carrier.mcc
+          - network.carrier.mnc
+          - network.carrier.name
+          - network.connection.subtype
+          - network.connection.type
+          - network.local.port
+          - network.peer.port
+          - network.protocol.name
+          - network.protocol.version
+          - network.transport
+          - network.type
+          
+          # Service & Deployment
+          - service.name
+          - service.namespace
+          - service.version
+          - service.instance.id
+          - service.peer.name
+          - service.peer.namespace
+          - deployment.environment
+          
+          # Thread & Code
+          - thread.id
+          - thread.name
+          - code.column
+          - code.filepath
+          - code.function
+          - code.lineno
+          - code.namespace
+          
+          # HTTP & URL
+          - http.request.body.size
+          - http.request.method
+          - http.request.method_original
+          - http.request.resend_count
+          - http.request.size
+          - http.response.body.size
+          - http.response.size
+          - http.response.status_code
+          - http.route
+          - url.full
+          - url.path
+          - url.query
+          - url.scheme
+          - url.template
+          
+          # User Agent
+          - user_agent.original
+          - user_agent.synthetic.type
+          
+          # Database
+          - db.collection.name
+          - db.namespace
+          - db.operation.batch.size
+          - db.operation.name
+          - db.query.summary
+          - db.response.returned_rows
+          - db.response.status_code
+          - db.stored_procedure.name
+          - db.system.name
+          
+          # Errors & Exceptions
+          - exception.type
+          - error.type
+          
+          # Cloud & Messaging
+          - cloud.resource_id
+          - messaging.batch.message_count
+          - messaging.consumer.group.name
+          - messaging.destination.anonymous
+          - messaging.destination.name
+          - messaging.destination.partition.id
+          - messaging.destination.subscription.name
+          - messaging.destination.template
+          - messaging.destination.temporary
+          - messaging.message.body.size
+          - messaging.message.envelope.size
+          - messaging.operation.name
+          - messaging.operation.type
+          - messaging.system
+          
+          # FaaS
+          - faas.coldstart
+          - faas.cron
+          - faas.document.collection
+          - faas.document.name
+          - faas.document.operation
+          - faas.document.time
+          - faas.invocation_id
+          - faas.invoked_name
+          - faas.invoked_provider
+          - faas.invoked_region
+          - faas.time
+          - faas.trigger
+          
+          # RPC
+          - rpc.method
+          - rpc.method_original
+          - rpc.response.status_code
+          - rpc.system.name
+          
+          # CloudEvents
+          - cloudevents.event_id
+          - cloudevents.event_source
+          - cloudevents.event_spec_version
+          - cloudevents.event_subject
+          - cloudevents.event_type
+          
+          # Telemetry SDK
+          - telemetry.sdk.language
+          - telemetry.sdk.name
+          - telemetry.sdk.version
+          
+          # Legacy
+          - opentracing.ref_type
+        
         blocked_key_patterns:
           - ".*token.*"
           - ".*api_key.*"
+          - ".*apikey.*"
+          - ".*password.*"
+          - ".*passwd.*"
+          - ".*secret.*"
+          - ".*credential.*"
+          - ".*access.?key.*"
+          - ".*private.?key.*"
+          - ".*public.?key.*"
+          - ".*auth.*"
+          - ".*bearer.*"
+          - ".*jwt.*"
+          - ".*session.*"
+          - ".*cookie.*"
+          - ".*aws.?secret.*"
+          - ".*azure.?key.*"
+          - ".*gcp.?key.*"
+          - ".*client.?secret.*"
+          - ".*certificate.*"
+          - ".*cert.*"
+          - ".*x-api-key.*"
+          - ".*x-auth.*"
         hash_function: md5
-        summary: info
+        summary: debug
         url_sanitizer:
           enabled: true
-          attributes: ["http.url", "url"]
+          attributes: ["http.url", "url", "url.full"]
           sanitize_span_name: true
         db_sanitizer:
           sanitize_span_name: true

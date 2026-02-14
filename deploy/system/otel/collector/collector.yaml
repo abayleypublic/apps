@@ -333,6 +333,18 @@ spec:
           - ".*cert.*"
           - ".*x-api-key.*"
           - ".*x-auth.*"
+          - ".*oauth.*"
+          - ".*refresh.*"
+          - ".*authorization.?code.*"
+          - ".*nonce.*"
+          - ".*client.?id.*"
+          - ".*redirect.?uri.*"
+          - ".*pkce.*"
+          - ".*verifier.*"
+          - ".*challenge.*"
+          - ".*user.?id.*"
+          - ".*account.?id.*"
+          - ".*customer.?id.*"
         hash_function: md5
         summary: debug
         url_sanitizer:

@@ -17,7 +17,7 @@ spec:
         - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_service:v1.2.5
         - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_ui:v1.2.5
   destination:
-    server: https://kube.austinbayley.co.uk:6443
+    server: portfolio
     namespace: prod-queue
   syncPolicy:
     syncOptions:

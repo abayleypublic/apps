@@ -16,7 +16,7 @@ spec:
       targetRevision: HEAD
       path: deploy/system/temporal/base
   destination:
-    server: https://kube.austinbayley.co.uk:6443
+    server: portfolio
     namespace: temporal
   syncPolicy:
     syncOptions:

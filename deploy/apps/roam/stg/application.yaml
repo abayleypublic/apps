@@ -13,7 +13,7 @@ spec:
       images:
         - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_charity:v1.1.15
   destination:
-    server: https://kube.austinbayley.co.uk:6443
+    server: portfolio
     namespace: stg-roam
   syncPolicy:
     syncOptions:

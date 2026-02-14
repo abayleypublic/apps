@@ -16,7 +16,7 @@ spec:
       targetRevision: HEAD
       path: deploy/system/tetragon/base
   destination:
-    server: https://kube.austinbayley.co.uk:6443
+    server: portfolio
     namespace: kube-system
   syncPolicy:
     syncOptions:

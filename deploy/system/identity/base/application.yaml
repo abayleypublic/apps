@@ -13,7 +13,7 @@ spec:
       images:
         - alpine/k8s:1.32.11
   destination:
-    server: https://kube.austinbayley.co.uk:6443
+    server: portfolio
     namespace: default
   syncPolicy:
     syncOptions:

@@ -10,7 +10,7 @@ spec:
     targetRevision: HEAD
     path: deploy/system/coredns/base
   destination:
-    server: portfolio
+    name: portfolio
     namespace: kube-system
   syncPolicy:
     syncOptions:

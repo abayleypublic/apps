@@ -16,7 +16,7 @@ spec:
       targetRevision: HEAD
       path: deploy/system/temporal/base
   destination:
-    server: portfolio
+    name: portfolio
     namespace: temporal
   syncPolicy:
     syncOptions:

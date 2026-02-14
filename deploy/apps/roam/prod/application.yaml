@@ -13,7 +13,7 @@ spec:
       images:
         - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_charity:v1.1.15
   destination:
-    server: portfolio
+    name: portfolio
     namespace: prod-roam
   syncPolicy:
     syncOptions:

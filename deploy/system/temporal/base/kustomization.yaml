@@ -6,4 +6,3 @@ resources:
   - namespaces.yaml
   - route.yaml
   - secrets.yaml
-  - web-config.yaml

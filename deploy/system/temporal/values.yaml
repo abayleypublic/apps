@@ -122,6 +122,12 @@ web:
       value: /etc/temporal/tls/ca.crt
     - name: TEMPORAL_TLS_ENABLE_HOST_VERIFICATION
       value: "true"
+    - name: TEMPORAL_CODEC_ENDPOINT
+      value: https://temporal-codec.austinbayley.co.uk
+    - name: TEMPORAL_CODEC_PASS_ACCESS_TOKEN
+      value: "true"
+    - name: TEMPORAL_CODEC_INCLUDE_CREDENTIALS
+      value: "true"
 
 cassandra:
   enabled: false

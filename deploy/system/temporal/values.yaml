@@ -74,6 +74,7 @@ server:
       permissionsClaimName: permissions
       authorizer: default
       claimMapper: default
+      audience: E1Id4VSoAEDoZnMB1ykNyyvwlSaGUeZe
 
 adminTools:
   additionalVolumes:

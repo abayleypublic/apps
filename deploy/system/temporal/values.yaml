@@ -65,16 +65,6 @@ server:
           serverName: temporal
           rootCaFiles:
             - /etc/temporal/tls/ca.crt
-    
-    authorization:
-      jwtKeyProvider:
-        keySourceURIs:
-          - https://dev-hoo0x1gbvzrm2jd2.uk.auth0.com/.well-known/jwks.json
-        refreshInterval: 1m
-      permissionsClaimName: permissions
-      authorizer: default
-      claimMapper: default
-      audience: E1Id4VSoAEDoZnMB1ykNyyvwlSaGUeZe
 
 adminTools:
   additionalVolumes:

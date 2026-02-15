@@ -16,11 +16,11 @@ spec:
       targetRevision: HEAD
       path: deploy/system/temporal/base
     - repoURL: https://github.com/abayleypublic/temporal_codec
-      targetRevision: v0.0.8
+      targetRevision: v0.0.10
       path: deploy/overlays/prod
       kustomize:
         images:
-          - codec=europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/temporal-codec:v0.0.8
+          - codec=europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/temporal-codec:v0.0.10
   destination:
     name: portfolio
     namespace: temporal

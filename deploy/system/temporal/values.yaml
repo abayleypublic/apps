@@ -136,6 +136,8 @@ web:
       value: https://dev-hoo0x1gbvzrm2jd2.uk.auth0.com/
     - name: TEMPORAL_AUTH_CLIENT_ID
       value: "E1Id4VSoAEDoZnMB1ykNyyvwlSaGUeZe"
+    - name: TEMPORAL_AUTH_USE_ID_TOKEN_AS_BEARER
+      value: "true"
     - name: TEMPORAL_CODEC_ENDPOINT
       value: https://temporal-codec.austinbayley.co.uk
     - name: TEMPORAL_CODEC_PASS_ACCESS_TOKEN

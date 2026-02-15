@@ -16,7 +16,7 @@ spec:
       targetRevision: HEAD
       path: deploy/system/temporal/base
     - repoURL: https://github.com/abayleypublic/temporal_codec
-      targetRevision: v0.0.7
+      targetRevision: HEAD
       path: deploy/overlays/prod
       kustomize:
         images:

@@ -105,9 +105,16 @@ web:
     - name: temporal-admin-client
       secret:
         secretName: temporal-admin-client
+    - name: temporal-web-config
+      configMap:
+        name: temporal-web-config
   additionalVolumeMounts:
     - name: temporal-admin-client
       mountPath: /etc/temporal/tls
+      readOnly: true
+    - name: temporal-web-config
+      mountPath: /home/ui-server/config/docker.yaml
+      subPath: docker.yaml
       readOnly: true
   additionalEnv:
     - name: TEMPORAL_ADDRESS
@@ -122,6 +129,20 @@ web:
       value: /etc/temporal/tls/ca.crt
     - name: TEMPORAL_TLS_ENABLE_HOST_VERIFICATION
       value: "true"
+    - name: TEMPORAL_AUTH_CALLBACK_URL
+      value: "https://temporal.austinbayley.co.uk/auth/sso/callback"
+    - name: TEMPORAL_AUTH_SCOPES
+      value: "openid,email,profile"
+    - name: TEMPORAL_AUTH_ENABLED
+      value: "true"
+    - name: TEMPORAL_AUTH_TYPE
+      value: "oidc"
+    - name: TEMPORAL_AUTH_PROVIDER_URL
+      value: https://dev-hoo0x1gbvzrm2jd2.uk.auth0.com/
+    - name: TEMPORAL_AUTH_ISSUER_URL
+      value: https://dev-hoo0x1gbvzrm2jd2.uk.auth0.com/
+    - name: TEMPORAL_AUTH_CLIENT_ID
+      value: "E1Id4VSoAEDoZnMB1ykNyyvwlSaGUeZe"
     - name: TEMPORAL_CODEC_ENDPOINT
       value: https://temporal-codec.austinbayley.co.uk
     - name: TEMPORAL_CODEC_PASS_ACCESS_TOKEN

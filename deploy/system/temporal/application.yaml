@@ -20,7 +20,7 @@ spec:
       path: deploy/overlays/prod
       kustomize:
         images:
-          - codec=europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/temporal_codec:v0.0.3
+          - codec=europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/temporal-codec:v0.0.3
   destination:
     name: portfolio
     namespace: temporal

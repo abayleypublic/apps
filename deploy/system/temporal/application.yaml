@@ -15,6 +15,12 @@ spec:
     - repoURL: https://github.com/abayleypublic/apps
       targetRevision: HEAD
       path: deploy/system/temporal/base
+    - repoURL: https://github.com/abayleypublic/temporal_codec
+      targetRevision: v0.0.3
+      path: deploy/overlays/prod
+      kustomize:
+        images:
+          - codec=europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/temporal_codec:v0.0.3
   destination:
     name: portfolio
     namespace: temporal

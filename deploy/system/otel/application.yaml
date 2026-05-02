@@ -23,7 +23,7 @@ spec:
       path: deploy/system/otel/collector
       kustomize:
         images:
-          - ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.142.0
+          - ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.157.0
   destination:
     name: portfolio
     namespace: observability

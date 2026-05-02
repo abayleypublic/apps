@@ -17,7 +17,7 @@ spec:
       path: deploy/system/otel/ebpf
       kustomize:
         images:
-          - otel/ebpf-instrument:v0.8.0
+          - otel/ebpf-instrument:v0.4.1
     - repoURL: https://github.com/abayleypublic/apps
       targetRevision: HEAD
       path: deploy/system/otel/collector

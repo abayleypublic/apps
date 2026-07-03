@@ -11,7 +11,7 @@ spec:
     path: deploy/system/identity/base
     kustomize:
       images:
-        - alpine/k8s:1.32.11
+        - alpine/k8s:1.33.13
   destination:
     name: portfolio
     namespace: default

@@ -12,7 +12,11 @@ api:
   adminAccount:
     enabled: false
 
+  host: "https://kargo.austinbayley.co.uk"
+
   oidc:
+    enabled: true
+
     admins:
       claims:
         groups:

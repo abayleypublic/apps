@@ -11,7 +11,8 @@ spec:
     path: deploy/overlays/prod
     kustomize:
       images:
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_charity:v1.1.16
+        - name: europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_charity
+          newTag: v1.1.16
   destination:
     name: portfolio
     namespace: prod-roam

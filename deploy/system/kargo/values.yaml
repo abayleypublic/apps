@@ -8,6 +8,7 @@ api:
 
   tls:
     enabled: false
+    terminatedUpstream: true
 
   adminAccount:
     enabled: false

@@ -1,0 +1,26 @@
+api:
+  argocd:
+    urls:
+      "": "https://argocd.austinbayley.co.uk"
+  
+  ingress:
+    enabled: false
+
+  tls:
+    enabled: false
+
+  oidc:
+    dex:
+      enabled: true
+      connectors:
+        - type: github
+          id: github
+          name: GitHub
+          config:
+            clientID: Iv23lidURGmEy1jsqZ1z
+            clientSecret: "$CLIENT_SECRET"
+            orgs:
+              - name: abayleyportfolio
+      envFrom:
+       - secretRef:
+           name: github-secrets

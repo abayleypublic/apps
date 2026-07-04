@@ -7,3 +7,6 @@
 [submodule "submodules/otel"]
 	path = submodules/otel
 	url = https://github.com/open-telemetry/opentelemetry-helm-charts.git
+[submodule "submodules/kargo"]
+	path = submodules/kargo
+	url = https://github.com/akuity/kargo.git

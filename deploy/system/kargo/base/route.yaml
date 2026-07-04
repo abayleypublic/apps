@@ -9,13 +9,6 @@ spec:
   hostnames:
     - "kargo.austinbayley.co.uk"
   rules:
-    - matches:
-        - path:
-            type: PathPrefix
-            value: /dex
-      backendRefs:
-        - name: kargo-dex-server
-          port: 443
     - backendRefs:
         - name: kargo-api
           port: 80

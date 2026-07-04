@@ -36,6 +36,8 @@ api:
             clientID: Iv23lidURGmEy1jsqZ1z
             clientSecret: "$CLIENT_SECRET"
             redirectURI: https://kargo.austinbayley.co.uk/dex/callback
+            loadAllGroups: true
+            teamNameField: slug
       envFrom:
        - secretRef:
            name: github-secrets

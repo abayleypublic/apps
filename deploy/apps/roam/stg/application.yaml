@@ -11,8 +11,7 @@ spec:
     path: deploy/overlays/stg
     kustomize:
       images:
-        - name: europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_charity
-          newTag: v1.1.16
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_charity:v1.1.16
   destination:
     name: portfolio
     namespace: stg-roam

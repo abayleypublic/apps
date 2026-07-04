@@ -11,16 +11,11 @@ spec:
     path: deploy/overlays/prod
     kustomize:
       images:
-        - name: europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_backend
-          newTag: v1.2.5
-        - name: europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_gateway
-          newTag: v1.2.5
-        - name: europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_mcp
-          newTag: v1.2.5
-        - name: europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_service
-          newTag: v1.2.5
-        - name: europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_ui
-          newTag: v1.2.5
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_backend:v1.2.5
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_gateway:v1.2.5
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_mcp:v1.2.5
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_service:v1.2.5
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_ui:v1.2.5
   destination:
     name: portfolio
     namespace: prod-queue

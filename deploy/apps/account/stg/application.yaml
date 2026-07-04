@@ -11,10 +11,8 @@ spec:
     path: deploy/overlays/stg
     kustomize:
       images:
-        - name: europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/account_backend
-          newTag: v0.1.0
-        - name: europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/account_ui
-          newTag: v0.1.0
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/account_backend:v0.1.0
+        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/account_ui:v0.1.0
   destination:
     name: portfolio
     namespace: stg-account

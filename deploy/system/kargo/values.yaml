@@ -9,7 +9,15 @@ api:
   tls:
     enabled: false
 
+  adminAccount:
+    enabled: false
+
   oidc:
+    admins:
+      claims:
+        groups:
+          - "abayleyportfolio"
+
     dex:
       enabled: true
       connectors:
@@ -19,8 +27,6 @@ api:
           config:
             clientID: Iv23lidURGmEy1jsqZ1z
             clientSecret: "$CLIENT_SECRET"
-            orgs:
-              - name: abayleyportfolio
       envFrom:
        - secretRef:
            name: github-secrets

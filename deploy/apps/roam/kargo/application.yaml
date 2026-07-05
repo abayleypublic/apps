@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kargo-roam
+  namespace: argocd
+spec:
+  project: activity
+  source:
+    repoURL: https://github.com/abayleypublic/apps
+    targetRevision: main
+    path: deploy/apps/roam/kargo
+  destination:
+    name: portfolio
+    namespace: kargo
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true
+    automated:
+      selfHeal: true
+      prune: true

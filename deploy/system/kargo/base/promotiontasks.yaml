@@ -1,0 +1,81 @@
+apiVersion: kargo.akuity.io/v1alpha1
+kind: ClusterPromotionTask
+metadata:
+  name: apps-promotion
+spec:
+  vars:
+  # Required
+  - name: images
+  - name: path
+  - name: targetRevision
+  # Optional
+  - name: repoURL
+    value: https://github.com/abayleypublic/apps
+  - name: branch
+    value: main
+  - name: checkoutPath
+    value: ./repo
+  - name: openpr
+    value: "false"
+
+  steps:
+
+  - uses: git-clone
+    config:
+      repoURL: ${{ vars.repoURL }}
+      checkout:
+      - branch: ${{ vars.branch }}
+        path: ${{ vars.checkoutPath }}
+
+  - uses: file-write
+    as: write-application-patch
+    config:
+      path: .kargo/application-patch.yaml
+      contents: |
+        spec:
+          source:
+            targetRevision: ${{ vars.targetRevision }}
+            kustomize:
+              images: ${{ vars.images }}
+
+  - uses: yaml-merge
+    as: update-application
+    config:
+      inFiles:
+      - ${{ vars.checkoutPath }}/${{ vars.path }}/application.yaml
+      - .kargo/application-patch.yaml
+      outFile: ${{ vars.checkoutPath }}/${{ vars.path }}/application.yaml
+
+  - uses: git-commit
+    as: commit
+    config:
+      path: ${{ vars.checkoutPath }}
+      message: Promote ${{ ctx.stage }} to ${{ vars.targetRevision }}
+
+  - uses: git-push
+    if: ${{ vars.openpr != 'true' }}
+    config:
+      path: ${{ vars.checkoutPath }}
+
+  - uses: git-push
+    if: ${{ vars.openpr == 'true' }}
+    as: push
+    config:
+      path: ${{ vars.checkoutPath }}
+      generateTargetBranch: true
+
+  - uses: git-open-pr
+    as: open-pr
+    if: ${{ vars.openpr == 'true' }}
+    config:
+      repoURL: ${{ vars.repoURL }}
+      createTargetBranch: true
+      sourceBranch: ${{ task.outputs.push.branch }}
+      targetBranch: ${{ vars.branch }}
+
+  - uses: git-wait-for-pr
+    as: wait-for-pr
+    if: ${{ vars.openpr == 'true' }}
+    config:
+      repoURL: ${{ vars.repoURL }}
+      prNumber: ${{ task.outputs['open-pr'].prNumber }}

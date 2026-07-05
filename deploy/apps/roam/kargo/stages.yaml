@@ -1,0 +1,58 @@
+apiVersion: kargo.akuity.io/v1alpha1
+kind: Stage
+metadata:
+  name: staging
+  annotations:
+    kargo.akuity.io/color: amber
+spec:
+  requestedFreight:
+  - origin:
+      kind: Warehouse
+      name: roam
+    sources:
+      direct: true
+  promotionTemplate:
+    spec:
+      steps:
+      - task:
+          name: apps-promotion
+          kind: ClusterPromotionTask
+        vars:
+        - name: path
+          value: deploy/apps/roam/stg
+        - name: targetRevision
+          value: ${{ imageFrom('europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_charity').Tag }}
+        - name: images
+          value: >-
+            ["europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_charity:${{ imageFrom('europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_charity').Tag }}"]
+---
+apiVersion: kargo.akuity.io/v1alpha1
+kind: Stage
+metadata:
+  name: prod
+  annotations:
+    kargo.akuity.io/color: violet
+spec:
+  requestedFreight:
+  - origin:
+      kind: Warehouse
+      name: roam
+    sources:
+      stages:
+      - staging
+  promotionTemplate:
+    spec:
+      steps:
+      - task:
+          name: apps-promotion
+          kind: ClusterPromotionTask
+        vars:
+        - name: path
+          value: deploy/apps/roam/prod
+        - name: targetRevision
+          value: ${{ imageFrom('europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_charity').Tag }}
+        - name: images
+          value: >-
+            ["europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_charity:${{ imageFrom('europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_charity').Tag }}"]
+        - name: openpr
+          value: "true"

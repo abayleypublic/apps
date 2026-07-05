@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: workload-identity
+data:
+  credential-configuration.json: |-
+    {
+      "universe_domain": "googleapis.com",
+      "type": "external_account",
+      "audience": "//iam.googleapis.com/projects/416469577734/locations/global/workloadIdentityPools/kubernetes/providers/cluster",
+      "subject_token_type": "urn:ietf:params:oauth:token-type:jwt",
+      "token_url": "https://sts.googleapis.com/v1/token",
+      "credential_source": {
+        "file": "/var/run/service-account/token",
+        "format": {
+          "type": "json"
+        }
+      },
+      "token_info_url": "https://stst.googleapis.com/v1/introspect",
+    }

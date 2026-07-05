@@ -63,6 +63,6 @@ controller:
       projected:
         sources:
           - serviceAccountToken:
-             audience: "https://kargo.austinbayley.co.uk"
+             audience: "//iam.googleapis.com/projects/416469577734/locations/global/workloadIdentityPools/kubernetes/providers/cluster"
              path: "token"
              expirationSeconds: 3600

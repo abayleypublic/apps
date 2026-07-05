@@ -11,7 +11,7 @@ spec:
     path: deploy/apps/roam/kargo
   destination:
     name: portfolio
-    namespace: kargo
+    namespace: roam
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

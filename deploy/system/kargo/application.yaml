@@ -8,9 +8,6 @@ spec:
   sources:
     - repoURL: https://github.com/abayleypublic/apps
       targetRevision: HEAD
-      path: deploy/system/kargo/wif
-    - repoURL: https://github.com/abayleypublic/apps
-      targetRevision: HEAD
       path: deploy/system/kargo/chart
       helm:
         valueFiles:

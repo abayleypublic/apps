@@ -78,4 +78,4 @@ spec:
     if: ${{ vars.openpr == 'true' }}
     config:
       repoURL: ${{ vars.repoURL }}
-      prNumber: ${{ task.outputs['open-pr'].id }}
+      prNumber: ${{ outputs['open-pr'].pr.id }}

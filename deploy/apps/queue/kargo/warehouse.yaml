@@ -1,0 +1,9 @@
+apiVersion: kargo.akuity.io/v1alpha1
+kind: Warehouse
+metadata:
+  name: queue
+spec:
+  subscriptions:
+  - image:
+      repoURL: europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/queue_backend
+      imageSelectionStrategy: NewestBuild

@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kargo-queue
+  namespace: argocd
+spec:
+  project: activity
+  source:
+    repoURL: https://github.com/abayleypublic/apps
+    targetRevision: main
+    path: deploy/apps/queue/kargo
+  destination:
+    name: portfolio
+    namespace: queue
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true
+    automated:
+      selfHeal: true
+      prune: true

@@ -47,7 +47,7 @@ spec:
   requestedFreight:
   - origin:
       kind: Warehouse
-      name: roam
+      name: queue
     sources:
       stages:
       - staging

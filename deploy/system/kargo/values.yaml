@@ -1,5 +1,5 @@
 image:
-  tag: v1.10.8
+  tag: v1.11.0-rc.1
 
 api:
   argocd:

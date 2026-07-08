@@ -11,14 +11,14 @@ spec:
     path: deploy/overlays/stg
     kustomize:
       images:
-        - europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_charity:v1.1.16
+      - "europe-west2-docker.pkg.dev/portfolio-463406/docker-repository/activity_tracker_charity:v1.1.16"
   destination:
     name: portfolio
     namespace: stg-roam
   syncPolicy:
     syncOptions:
-      - CreateNamespace=true
-      - ApplyOutOfSyncOnly=true
+    - CreateNamespace=true
+    - ApplyOutOfSyncOnly=true
     automated:
       selfHeal: true
       prune: true

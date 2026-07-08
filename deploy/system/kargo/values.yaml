@@ -33,7 +33,7 @@ api:
           id: github
           name: GitHub
           config:
-            clientID: Iv23lidURGmEy1jsqZ1z
+            clientID: Iv23li0arvb7L4qz9fwL
             clientSecret: "$CLIENT_SECRET"
             redirectURI: https://kargo.austinbayley.co.uk/dex/callback
             loadAllGroups: true

@@ -14,6 +14,13 @@ spec:
   promotionTemplate:
     spec:
       steps:
+      - uses: set-metadata
+        config:
+          updates:
+          - kind: Stage
+            name: staging
+            values:
+              promotion-actor: ${{ ctx.meta.promotion.actor }}
       - task:
           name: apps-promotion
           kind: ClusterPromotionTask
